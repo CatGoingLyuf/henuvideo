@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>主讲人列表管理</title>
+    <title>课程列表管理</title>
 
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
     <script src="${pageContext.request.contextPath}/js/confirm.js"></script>
     <script type="text/javascript">
         function showAddPage() {
-            location.href = "${pageContext.request.contextPath}/speaker/addSpeaker";
+            location.href = "${pageContext.request.contextPath}/course/addCourse";
         }
 
         function delSpeakerById(Obj, id, name) {
@@ -35,7 +35,7 @@
                     'primary': true,
                     'callback': function () {
                         var param = {"id": id};
-                        $.post("speakerDel", param, function (data) {
+                        $.post("delCourse", param, function (data) {
                             if (data == 'success') {
                                 Confirm.show('温馨提示：', '删除成功');
                                 $(Obj).parent().parent().remove();
@@ -68,15 +68,15 @@
              id="bs-example-navbar-collapse-9">
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/video/list">视频管理</a></li>
-                <li class="active"><a href="${pageContext.request.contextPath}/speaker/showSpeakerList">主讲人管理</a></li>
-                <li><a href="${pageContext.request.contextPath}/course/showCourseList">课程管理</a></li>
+                <li><a href="${pageContext.request.contextPath}/speaker/showSpeakerList">主讲人管理</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/course/showCourseList">课程管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/index.jsp">返回首页</a></li>
 
 
             </ul>
             <p class="navbar-text navbar-right">
                 <span>${username}</span> <i class="glyphicon glyphicon-log-in"
-                                                         aria-hidden="true"></i>&nbsp;&nbsp;<a
+                                            aria-hidden="true"></i>&nbsp;&nbsp;<a
                     href="${pageContext.request.contextPath}/admin/exit"
                     class="navbar-link">退出</a>
             </p>
@@ -90,7 +90,7 @@
 
 <div class="jumbotron" style="padding-top: 15px;padding-bottom: 15px;">
     <div class="container">
-        <h2>主讲人管理</h2>
+        <h2>课程管理</h2>
     </div>
 </div>
 
@@ -112,24 +112,24 @@
         <thead>
         <tr class="active">
             <th>序号</th>
-            <th>名称</th>
-            <th>职位</th>
+            <th>课程</th>
+            <th>所属科目</th>
             <th style="width:60%;">简介</th>
             <th>编辑</th>
             <th>删除</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${pageInfo.list}" var="speaker" varStatus="status">
+        <c:forEach items="${pageInfo.list}" var="course" varStatus="status">
             <tr>
                 <td>${status.index+1}</td>
-                <td>${speaker.speakerName}</td>
+                <td>${course.courseTitle}</td>
 
-                <td>${speaker.speakerJob}</td>
-                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${speaker.speakerDesc}</td>
-                <td><a href="${pageContext.request.contextPath}/speaker/edit?id=${speaker.id}"><span
+                <td>${course.subjectId}</td>
+                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${course.courseDesc}</td>
+                <td><a href="${pageContext.request.contextPath}/course/edit?id=${course.id}"><span
                         class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-                <td><a href="#" onclick="return delSpeakerById(this,'${speaker.id}','${speaker.speakerName}')"><span
+                <td><a href="#" onclick="return delSpeakerById(this,'${course.id}','${course.courseTitle}')"><span
                         class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
             </tr>
 
@@ -139,13 +139,13 @@
         </tbody>
     </table>
     <div align="center">
-        <a href="showSpeakerList?page=1">首页</a>
-        <a href="showSpeakerList?page=${pageInfo.prePage}">上一页</a>
+        <a href="showCourseList?page=1">首页</a>
+        <a href="showCourseList?page=${pageInfo.prePage}">上一页</a>
         &nbsp;
         ${pageInfo.pageNum }/${pageInfo.pages} </span>页
         &nbsp;
-        <a href="showSpeakerList?page=${pageInfo.nextPage }">下一页</a>
-        <a href="showSpeakerList?page=${pageInfo.pages }">尾页</a>
+        <a href="showCourseList?page=${pageInfo.nextPage }">下一页</a>
+        <a href="showCourseList?page=${pageInfo.pages }">尾页</a>
     </div>
 </div>
 </body>

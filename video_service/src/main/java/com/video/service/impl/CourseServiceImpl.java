@@ -35,7 +35,25 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public Course findById2(Integer courseId) {
+        return courseMapper.findById2(courseId);
+    }
+    @Override
     public Course findById(Integer courseId) {
         return courseMapper.findById(courseId);
+    }
+    @Override
+    public void addCourse(Course course) {
+        courseMapper.insert(course);
+    }
+
+    @Override
+    public void updateCourse(Course course) {
+        courseMapper.updateByPrimaryKeyWithBLOBs(course);
+    }
+
+    @Override
+    public void delCourse(Course course) {
+        courseMapper.deleteByPrimaryKey(course.getId());
     }
 }

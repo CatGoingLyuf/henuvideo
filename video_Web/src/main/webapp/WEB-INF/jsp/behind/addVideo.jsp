@@ -105,7 +105,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="${pageContext.request.contextPath}/video/list">视频管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/speaker/showSpeakerList">主讲人管理</a></li>
-                <li><a href="${pageContext.request.contextPath}/showCourseList">课程管理</a></li>
+                <li><a href="${pageContext.request.contextPath}/course/showCourseList">课程管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/index.jsp">返回首页</a></li>
 
 
@@ -169,9 +169,6 @@
                                                              onclick="showName(this,'${speaker.id}',1)">${speaker.speakerName}</a>
                                 </li>
                             </c:forEach>
-                            <!-- <li ><a href="#" onclick="showName(this,1,1)">闫振伟</a></li>
-                            <li ><a href="#" onclick="showName(this,2,1)">李文魁</a></li>
-                            <li ><a href="#" onclick="showName(this,3,1)">石军培</a></li>  -->
                         </ul>
                     </div><!-- /btn-group -->
                     <c:if test="${empty video.speakerId}">
@@ -244,7 +241,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">播放次数</label>
             <div class="col-sm-10">
-                <input type="text" name="playNum" class="form-control" readonly="readonly" value="${video.playNum}" >
+                <input type="text" name="playNum" class="form-control" readonly="readonly" value="${video.playNum}">
             </div>
         </div>
 

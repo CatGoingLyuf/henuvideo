@@ -83,7 +83,7 @@
 </header>
 <nav class="w100">
     <div class="container">
-        <img  src="${pageContext.request.contextPath}/img/logo5.PNG" alt="易学教育的logo" onclick="location.href='${pageContext.request.contextPath}'"
+        <img  src="${pageContext.request.contextPath}/img/logo5.PNG" alt="易学教育的logo" onclick="location.href='${pageContext.request.contextPath}'    "
              draggable="false">
         <ul class="text_13 f_right">
             <li>

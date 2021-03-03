@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CourseMapper {
     Course findById(Integer courseId);
+    Course findById2(Integer courseId);
 
     int countByExample(CourseExample example);
 

@@ -124,5 +124,3 @@ var Confirm = {
 $(document).ready(function() {
     Confirm.init();
 });
-
-//www.sucaijiayuan.com 素材家园

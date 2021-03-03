@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>添加主讲人</title>
+    <title>添加课程</title>
 </head>
 <body>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false" %>
@@ -50,46 +50,24 @@
         }
     </style>
     <script type="text/javascript">
-
-        function showName(obj, id, type) {
-
-            if (type == 1) {
+        function showName(obj, id) {
                 //想获取下拉列表选中的值
                 var chooseName = $(obj).text();
                 // 将获取的值显示在输入框内
-                $("#speakerName").val(chooseName);
+                $("#subjectName").val(chooseName);
                 //想给隐藏的文本赋值
-                $("#speakerId").val(id);
-            } else {
-                var chooseName = $(obj).text();
-                // 将获取的值显示在输入框内
-                $("#courseName").val(chooseName);
-                //想给隐藏的文本赋值
-                $("#courseId").val(id);
-            }
-
+                $("#subjectId").val(id);
         }
-
 
         //页面加载完毕之后就执行以下代码片段
         $(function () {
-            var speakerId = '${video.speakerId}';
-            $("#selectSpeaker li").each(function () {
+            var speakerId = '${course.subjectId}';
+            $("#selectSubject li").each(function () {
 
                 if ($(this).val() == speakerId) {
-                    $("#speakerName").val($(this).text());
+                    $("#subjectName").val($(this).text());
                 }
             });
-
-            var courseId = '${video.courseId}';
-            $("#selectCourse li").each(function () {
-
-                if ($(this).val() == courseId) {
-                    $("#courseName").val($(this).text());
-                }
-            });
-
-
         });
 
     </script>
@@ -110,15 +88,15 @@
              id="bs-example-navbar-collapse-9">
             <ul class="nav navbar-nav">
                 <li ><a href="${pageContext.request.contextPath}/video/list">视频管理</a></li>
-                <li class="active"><a href="${pageContext.request.contextPath}/speaker/showSpeakerList">主讲人管理</a></li>
-                <li><a href="${pageContext.request.contextPath}/course/showCourseList">课程管理</a></li>
+                <li><a href="${pageContext.request.contextPath}/speaker/showSpeakerList">主讲人管理</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/course/showCourseList">课程管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/index.jsp">返回首页</a></li>
 
 
             </ul>
             <p class="navbar-text navbar-right">
                 <span>${username}</span> <i class="glyphicon glyphicon-log-in"
-                                                         aria-hidden="true"></i>&nbsp;&nbsp;<a
+                                            aria-hidden="true"></i>&nbsp;&nbsp;<a
                     href="${pageContext.request.contextPath}/admin/exit"
                     class="navbar-link">退出</a>
             </p>
@@ -134,12 +112,12 @@
     <div class="container">
 
         <%-- <c:if test="empty ${video.id}"> --%>
-        <c:if test="${empty speaker.id}">
-            <h2>添加主讲人信息</h2>
+        <c:if test="${empty course.id}">
+            <h2>添加课程信息</h2>
         </c:if>
 
-        <c:if test="${not empty speaker.id}">
-            <h2>修改主讲人信息</h2>
+        <c:if test="${not empty course.id}">
+            <h2>修改课程信息</h2>
         </c:if>
 
     </div>
@@ -148,31 +126,51 @@
 
 <div class="container" style="margin-top: 20px;">
 
-    <form class="form-horizontal" action="${pageContext.request.contextPath}/speaker/saveOrUpdate" method="post">
+    <form class="form-horizontal" action="${pageContext.request.contextPath}/course/saveOrUpdate" method="post">
 
 
-        <c:if test="${not empty speaker.id}">
-            <input type="hidden" name="id" value="${speaker.id}">
+        <c:if test="${not empty course.id}">
+            <input type="hidden" name="id" value="${course.id}">
         </c:if>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">名称</label>
+            <label class="col-sm-2 control-label">课程</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="speakerName" value="${speaker.speakerName}" placeholder="主讲人名称">
+                <input type="text" class="form-control" name="courseTitle" value="${course.courseTitle}" placeholder="课程名称">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">职位</label>
+            <label class="col-sm-2 control-label">所属学科</label>
             <div class="col-sm-10">
-                <input type="text" name="speakerJob" class="form-control" value="${speaker.speakerJob}" placeholder="主讲人职位">
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">下拉菜单<span class="caret"></span></button>
+                        <ul id="selectSubject" class="dropdown-menu">
+                            <c:forEach items="${subjectList}" var="subject">
+                                <li value='${subject.id}'><a href="#"
+                                                             onclick="showName(this,'${subject.id}')">${subject.subjectName}</a>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </div><!-- /btn-group -->
+                    <c:if test="${empty course.id}">
+                        <input type="hidden" class="form-control" id="subjectId" name="subjectId" value="0">
+                    </c:if>
+                    <c:if test="${not empty course.id}">
+                        <input type="hidden" class="form-control" id="subjectId" name="subjectId"
+                               value="${course.id}">
+                    </c:if>
+                    <input type="text" class="form-control" disabled id="subjectName" aria-label="...">
+                </div><!-- /input-group -->
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">简介</label>
             <div class="col-sm-10">
-                <textarea class="form-control" name="speakerDesc" rows="3">${speaker.speakerDesc}</textarea>
+                <textarea class="form-control" name="courseDesc" rows="3">${course.courseDesc}</textarea>
             </div>
         </div>
 

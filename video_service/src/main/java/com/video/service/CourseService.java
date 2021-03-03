@@ -13,4 +13,9 @@ public interface CourseService {
     List<Course> findAll();
     public List<Course> course(@PathVariable(name = "subject.id") Integer subjectId);
     Course findById(Integer courseId);
+    Course findById2(Integer courseId);
+
+    void addCourse(Course course);
+    void updateCourse(Course course);
+    void delCourse(Course course);
 }
