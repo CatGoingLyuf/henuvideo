@@ -1,0 +1,6 @@
+.idea/ workspace.xml
+# Project exclude paths
+/video_dao/target/
+/video_service/target/
+/video_utils/target/
+/video_Web/target/
