@@ -13,7 +13,7 @@
     <meta name="author" content="老刘">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/base.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/css.css">
-    <link rel="icon" href="favicon.png" type="image/png"/>
+    <link rel="icon" src="${pageContext.request.contextPath}/img/favicon.ico" type="img/ico"/>
     <title>在线公开课-易学教育|java|大数据|HTML5|python|UI|PHP视频教程</title>
 
     <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.min.js"></script>
@@ -41,7 +41,6 @@
         }
 
         $(function () {
-
 
             //div 两个哪个显示呢？
             if (null != "${sessionScope.userAccount}" && "${sessionScope.userAccount}" != "") {
@@ -84,7 +83,7 @@
 <nav class="w100">
     <div class="container">
         <img  src="${pageContext.request.contextPath}/img/lyuf.png" alt="lyuf的logo" onclick="location.href='${pageContext.request.contextPath}'    "
-             draggable="false">
+              draggable="false">
         <ul class="text_13 f_right">
             <li>
                 <a href="${pageContext.request.contextPath}/subject/selectAll">首页</a>

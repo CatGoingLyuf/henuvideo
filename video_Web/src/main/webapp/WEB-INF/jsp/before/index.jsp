@@ -31,6 +31,8 @@
             }
 
         });
+
+
     </script>
 </head>
 
@@ -38,6 +40,9 @@
 <header>
     <div class="container">
         <span>河南大学</span>
+        <a href="javascript:;" id="do_sync" class="mini-button"  iconCls="icon-sync" plain="true">
+            <input id="syncdata" type="date" value="2018-11-15" />
+            同步收款单</a>
         <div id="regBlock" style="display:none;float:right">
             <a href="javascript:;" id="reg_open"><img src="${pageContext.request.contextPath}/img/we.png">注册</a>
             <a href="javascript:;" id="login_open"><img src="${pageContext.request.contextPath}/img/we.png">登录</a>
@@ -60,7 +65,7 @@
 </header>
 <nav class="w100">
     <div class="container">
-        <img src="${pageContext.request.contextPath}/img/logo5.PNG" alt="易学教育的logo"
+        <img src="${pageContext.request.contextPath}/img/lyuf.png" alt="lyuf的logo"
              onclick="location.href='${pageContext.request.contextPath}'" draggable="false">
         <ul class="text_13 f_right">
             <li>
@@ -164,7 +169,7 @@
                             <div class="headline">
                                 <span>PHP教程</span>
                                 <img src="${pageContext.request.contextPath}/img/arrow.png" alt="">
-                            </div>
+                            </div>course/course/1
                         </a>
                     </td>
                     <td colspan="2" class="three_two">
@@ -213,8 +218,10 @@
 <footer>
 
     <ul>
+        <br>
+        <br>
         <li>
-            <img class="weibo" src="${pageContext.request.contextPath}/img/微博公众号.png" alt=""
+            <img class="weibo" src="${pageContext.request.contextPath}/img/空白.PNG" alt=""
                  draggable="false">
         </li>
         <li class="mt25">
@@ -241,8 +248,8 @@
                     <div>
                         <img class="weixin" src="${pageContext.request.contextPath}/img/微信公众号.png" alt=""
                              draggable="false">
-                        <img class="weibo" src="${pageContext.request.contextPath}/img/微博公众号.png" alt=""
-                             draggable="false">
+<%--                        <img class="weibo" src="${pageContext.request.contextPath}/img/空白.PNG" alt=""--%>
+<%--                             draggable="false">--%>
                     </div>
                 </li>
             </ul>
