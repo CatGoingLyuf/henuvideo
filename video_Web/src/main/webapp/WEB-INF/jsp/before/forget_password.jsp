@@ -71,7 +71,7 @@
                     <span>通过注册邮箱和手机号重设密码</span>
                 </div>
                 <div class="form_back">
-                    <a href="${pageContext.request.contextPath}/WEB-INF/jsp/before/index.jsp">返回立即登录</a>
+                    <a href="${pageContext.request.contextPath}/index.jsp">返回立即登录</a>
                 </div>
             </div>
             <div class="form_body">
