@@ -40,9 +40,6 @@
 <header>
     <div class="container">
         <span>河南大学</span>
-        <a href="javascript:;" id="do_sync" class="mini-button"  iconCls="icon-sync" plain="true">
-            <input id="syncdata" type="date" value="2018-11-15" />
-            同步收款单</a>
         <div id="regBlock" style="display:none;float:right">
             <a href="javascript:;" id="reg_open"><img src="${pageContext.request.contextPath}/img/we.png">注册</a>
             <a href="javascript:;" id="login_open"><img src="${pageContext.request.contextPath}/img/we.png">登录</a>

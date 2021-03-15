@@ -50,23 +50,6 @@ $(window).scroll(function () {
 $('#reg_open').click(function () {
     $('#reg').removeClass('hidden');
 });
-//绑定同步事件
-$('#do_sync').click(function () {
-
-    alert("同步中")
-
-    // var url = ROOT_PATH + "sync/jd/syncDataJdGathering.do";
-    // $.ajax({
-    //     url: url,
-    //     success:function (actionResult) {
-    //         if (actionResult.ret == 0){
-    //             alert("同步成功")
-    //         } else {
-    //             alert("同步异常")
-    //         }
-    //     }
-    // })
-})
 
 $('#login_open').click(function () {
     $('#login').removeClass('hidden');
@@ -78,22 +61,6 @@ $('#login_close').click(function () {
     $('#login').addClass('hidden');
 });
 
-//绑定同步事件
-$('#do_sync').on('click', function () {
-    console.log('do_sync绑定同步事件')
-    alert("同步中")
-    var url = ROOT_PATH + "sync/jd/syncDataJdGathering.do";
-    $.ajax({
-        url: url,
-        success:function (actionResult) {
-            if (actionResult.ret == 0){
-                alert("同步成功")
-            } else {
-                alert("同步异常")
-            }
-        }
-    })
-})
 
 // 报名
 // $("#iform .button").click(function (ev) {

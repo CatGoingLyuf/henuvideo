@@ -8,7 +8,7 @@
     <meta name="keywords" content="Web前端视频教程,大数据视频教程,HTML5视频教程,UI视频教程,PHP视频教程,java视频教程,python基础教程">
     <meta name="description"
           content="易学教育在线/course/course视频,为您提供java,python,HTML5,UI,PHP,大数据等学科经典视频教程在线浏览学习,精细化知识点解析,深入浅出,想学不会都难,易学教育,学习成就梦想！">
-    <meta name="author" content="尚忠祥">
+    <meta name="author" content="lyuf">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/base.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/forget_password.css">
     <link rel="icon" href="favicon.png" type="image/png">
@@ -26,9 +26,9 @@
                     var params = {"email": email.val()};
                     email.load("${pageContext.request.contextPath}/user/sendEmail", params, function (data) {
                         if (data == "hasNoUser") {
-                            alert("邮箱未注册")
+                            alert("亲，邮箱未注册")
                         } else if (data == "success") {
-                            alert("邮件发送成功");
+                            alert("亲，邮件发送成功，请查收验证码");
                             //倒计时
                             var time = 60;
                             var timer = setInterval(function () {
